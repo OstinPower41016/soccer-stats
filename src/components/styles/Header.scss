@@ -1,0 +1,26 @@
+.header {
+  background: rgb(48, 172, 23);
+  padding: 1rem 0;
+  &__title {
+    color: white;
+    font-size: 1.5rem;
+  }
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    &-logo {
+      display: flex;
+      align-items: baseline;
+      & > svg {
+        margin-right: 1rem;
+      }
+    }
+  }
+  &__links-group {
+    font-size: 1.2rem;
+    & > a:first-child {
+      margin-right: 4rem;
+    }
+  }
+}

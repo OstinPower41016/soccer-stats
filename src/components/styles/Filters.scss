@@ -1,0 +1,13 @@
+.filters {
+  border: 1px solid #0000006e;
+  padding: 1rem 1.5rem;
+  border-radius: 0.6rem;
+  &__title {
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 500;
+    & > svg {
+      margin-left: 1rem;
+    }
+  }
+}

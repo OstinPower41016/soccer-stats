@@ -1,0 +1,24 @@
+.league {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 1rem 1.5rem;
+  border: 1px solid #0000006e;
+  margin: 0 auto;
+  align-items: center;
+  border-radius: 0.6rem;
+
+  &__country {
+    flex: 0 0 15%;
+    text-align: left;
+  }
+  &__league {
+    flex: 0 0 50%;
+    text-align: center;
+  }
+  &__link-teams {
+    flex: 0 0 15%;
+    text-align: right;
+    color: black;
+  }
+}
