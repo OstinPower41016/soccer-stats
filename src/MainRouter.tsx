@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 
+import RouteWithFilter from "./utils/RouteWithFilter";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import LeagueCalendar from "./views/League-calendar";
@@ -16,7 +17,7 @@ const MainRouter: React.FunctionComponent<IMainRouterProps> = (props) => {
       <Header />
       <Search />
       <Switch>
-        <Route exact path="/" component={Leagues} />
+        <RouteWithFilter exact path="/" component={Leagues} />
         <Route path="/teams" component={Teams} />
         <Route path="/teams/:league" component={LeagueCalendar} />
         <Route path="/teams:/leagueCalendar" component={SingleTeamCalendar} />

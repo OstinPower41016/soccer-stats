@@ -17,7 +17,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
             <p className="header__title">Football Statistics Online</p>
           </Link>
           <div className="header__links-group">
-            <Link to="/leagues">Leagues</Link>
+            <Link to="/">Leagues</Link>
             <Link to="/teams">Teams</Link>
           </div>
         </nav>

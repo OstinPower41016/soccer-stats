@@ -10,4 +10,13 @@ const getCompetition = async (signal: CancelToken) => {
   }
 };
 
-export default { getCompetition };
+const getTeams = async (signal: CancelToken) => {
+  try {
+    const response = await axios.get("/teams/?plan=TIER_ONE", { cancelToken: signal });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default { getCompetition, getTeams };
