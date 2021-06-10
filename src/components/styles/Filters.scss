@@ -10,4 +10,25 @@
       margin-left: 1rem;
     }
   }
+  &__items {
+    margin-top: 1rem;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &--select {
+      & > select {
+        outline: none;
+        background: transparent;
+        padding: 0 1rem 0 0;
+        width: 80px;
+        border: 1px solid #777;
+        border-radius: 0.25rem;
+        line-height: 1.1rem;
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+      }
+    }
+  }
 }

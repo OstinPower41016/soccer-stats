@@ -74,6 +74,11 @@ export const leaguesSlice = createSlice({
         state.isFoundDataByFilter = false;
       }
     },
+    onFilterLeaguesBySearchText: (state, action: PayloadAction<{ searchText: string }>) => {
+      state.leagues.forEach((league) => {
+        console.log(league);
+      });
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCompetition.fulfilled, (state, action) => {
@@ -82,6 +87,6 @@ export const leaguesSlice = createSlice({
   },
 });
 
-export const { onFilterLeaguesBySeason } = leaguesSlice.actions;
+export const { onFilterLeaguesBySeason, onFilterLeaguesBySearchText } = leaguesSlice.actions;
 
 export default leaguesSlice.reducer;

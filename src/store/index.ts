@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import leaguesRedurers from "./Leagues/leaguesSlice";
+import searchReducers from "./Search/searchSlice";
 
 const store = configureStore({
   reducer: {
     leagues: leaguesRedurers,
+    search: searchReducers,
   },
 });
 

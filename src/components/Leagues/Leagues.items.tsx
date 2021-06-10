@@ -23,15 +23,25 @@ const LeaguesItems: React.FunctionComponent<ILeaguesItemsProps> = (props) => {
     return () => abortController.cancel();
   }, []);
 
-  return (
-    <>
-      {isEmpty(leagues) && <Loading />}
-      {leagues.length &&
-        leagues.map(({ latestAvalibaleSeason, isVisible, ...rest }) => {
+  const LeaguesRender = () => {
+    if (!isFoundDataByFilter) {
+      return null;
+    }
+    return (
+      <>
+        {leagues.map(({ latestAvalibaleSeason, isVisible, ...rest }) => {
           if (isVisible) {
             return <League {...rest} key={rest.id} />;
           }
         })}
+      </>
+    );
+  };
+
+  return (
+    <>
+      {isEmpty(leagues) && <Loading />}
+      {leagues.length > 0 && <LeaguesRender />}
       {!isFoundDataByFilter && <NotFindDataByFilter />}
     </>
   );

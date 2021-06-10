@@ -2,6 +2,7 @@ import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Header from "./components/Header";
+import Search from "./components/Search";
 import LeagueCalendar from "./views/League-calendar";
 import Leagues from "./views/Leagues";
 import SingleTeamCalendar from "./views/Single-team-calendar";
@@ -13,6 +14,7 @@ const MainRouter: React.FunctionComponent<IMainRouterProps> = (props) => {
   return (
     <>
       <Header />
+      <Search />
       <Switch>
         <Route exact path="/" component={Leagues} />
         <Route path="/teams" component={Teams} />

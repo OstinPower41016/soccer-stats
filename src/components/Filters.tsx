@@ -28,15 +28,21 @@ const Filters: React.FunctionComponent<IFiltersProps> = (props) => {
         <span>Filter</span>
         <BiFilter />
       </div>
-      <select
-        onChange={(e) => dispatch(onFilterLeaguesBySeason({ selectedYear: +e.target.value }))}
-      >
-        {rangeOptionsYear.map((year) => (
-          <option value={year} key={year}>
-            {year}
-          </option>
-        ))}
-      </select>
+      <div className="filters__items">
+        <div className="filters__item filters__item--select">
+          <label htmlFor="select">Choose a year: </label>
+          <select
+            id="select"
+            onChange={(e) => dispatch(onFilterLeaguesBySeason({ selectedYear: +e.target.value }))}
+          >
+            {rangeOptionsYear.map((year) => (
+              <option value={year} key={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
     </div>
   );
 };
