@@ -17,6 +17,7 @@ type TLeagueWithExtraField = TLeague & {
 type TInitialState = {
   leagues: TLeagueWithExtraField[];
   isFoundDataByFilter: boolean;
+  selectedYear: number;
 };
 
 export const fetchCompetition = createAsyncThunk(
@@ -49,6 +50,7 @@ export const fetchCompetition = createAsyncThunk(
 const initialState: TInitialState = {
   leagues: [],
   isFoundDataByFilter: true,
+  selectedYear: new Date().getFullYear(),
 };
 
 export const leaguesSlice = createSlice({
@@ -57,6 +59,7 @@ export const leaguesSlice = createSlice({
   reducers: {
     onFilterLeaguesBySeason: (state, action: PayloadAction<{ selectedYear: number }>) => {
       state.isFoundDataByFilter = true;
+      state.selectedYear = action.payload.selectedYear;
 
       let countVisibleLeague = state.leagues.length;
       state.leagues.forEach((league, idx) => {

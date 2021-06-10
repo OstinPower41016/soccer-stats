@@ -1,15 +1,16 @@
 import * as React from "react";
 
+import SectionList from "../../components/SectionList";
 import TeamsItems from "../../components/Teams/Teams.items";
 
-interface ITeamsProps {}
+interface ITeamsProps {
+  Filter: React.FunctionComponent<any>;
+}
 
 const Teams: React.FunctionComponent<ITeamsProps> = (props) => {
-  return (
-    <div>
-      <TeamsItems />
-    </div>
-  );
+  const { Filter } = props;
+
+  return <SectionList Filter={Filter} Items={TeamsItems}></SectionList>;
 };
 
 export default Teams;

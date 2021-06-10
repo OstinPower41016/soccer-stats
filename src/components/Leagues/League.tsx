@@ -1,5 +1,6 @@
 import * as React from "react";
 import cn from "classnames";
+import { Link, useLocation } from "react-router-dom";
 
 import { TLeague } from "../../store/Leagues/leaguesSlice";
 import "./styles/League.scss";
@@ -9,14 +10,19 @@ interface ILeagueProps extends TLeague {
 }
 
 const League: React.FunctionComponent<ILeagueProps> = (props) => {
+  const { search } = useLocation();
+  const season = new URLSearchParams(search).get("season") || new Date().getFullYear();
+
+  const pathRoute = `teams/${props.id}/${season}`;
+
   return (
-    <div className={cn("league", { [props.className!]: props.className })}>
+    <Link to={pathRoute} className={cn("league", { [props.className!]: props.className })}>
       <span className="league__country">{props.country}</span>
       <span className="league__league">{props.league}</span>
       <a href="#" className="league__link-teams">
         View Teams
       </a>
-    </div>
+    </Link>
   );
 };
 

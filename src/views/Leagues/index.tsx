@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import "./index.scss";
-import Container from "../../components/layouts/Container/container";
 import LeaguesItems from "../../components/Leagues/Leagues.items";
+import SectionList from "../../components/SectionList";
 
 interface ILeaguesProps {
   Filter: any;
@@ -11,16 +11,7 @@ interface ILeaguesProps {
 const Leagues: React.FunctionComponent<ILeaguesProps> = (props) => {
   const { Filter } = props;
 
-  return (
-    <section className="leagues">
-      <Container className="leagues__wrapper">
-        <Filter className="leagues__filter" />
-        <div className="leagues__items">
-          <LeaguesItems />
-        </div>
-      </Container>
-    </section>
-  );
+  return <SectionList Filter={Filter} Items={LeaguesItems}></SectionList>;
 };
 
 export default Leagues;

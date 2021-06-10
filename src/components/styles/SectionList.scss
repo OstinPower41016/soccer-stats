@@ -1,0 +1,19 @@
+.section-list {
+  margin-top: 4rem;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  &__filter {
+    flex: 0 0 20%;
+  }
+  &__items {
+    flex: 0 0 75%;
+  }
+  &__items {
+    & > a:not(:first-child) {
+      margin-top: 1rem;
+    }
+  }
+}
