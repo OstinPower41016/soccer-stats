@@ -13,6 +13,7 @@ interface ILeaguesItemsProps {}
 const LeaguesItems: React.FunctionComponent<ILeaguesItemsProps> = (props) => {
   const leagues = useAppSelector((state) => state.leagues.leagues);
   const isFoundDataByFilter = useAppSelector((state) => state.leagues.isFoundDataByFilter);
+  const searchText = useAppSelector((state) => state.search.searchText);
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
@@ -23,6 +24,8 @@ const LeaguesItems: React.FunctionComponent<ILeaguesItemsProps> = (props) => {
     return () => abortController.cancel();
   }, []);
 
+  const regexp = new RegExp(`^${searchText}`, "gi");
+
   const LeaguesRender = () => {
     if (!isFoundDataByFilter) {
       return null;
@@ -30,6 +33,9 @@ const LeaguesItems: React.FunctionComponent<ILeaguesItemsProps> = (props) => {
     return (
       <>
         {leagues.map(({ latestAvalibaleSeason, isVisible, ...rest }) => {
+          if (searchText.trim() && !rest.league.match(regexp)) {
+            return null;
+          }
           if (isVisible) {
             return <League {...rest} key={rest.id} />;
           }
