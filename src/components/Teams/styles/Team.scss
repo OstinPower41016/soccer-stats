@@ -1,0 +1,25 @@
+.team {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 1rem 1.5rem;
+  border: 1px solid #0000006e;
+  margin: 0 auto;
+  align-items: center;
+  border-radius: 0.6rem;
+  color: black;
+
+  &__country {
+    flex: 0 0 25%;
+    text-align: left;
+  }
+  &__club {
+    flex: 0 0 40%;
+    text-align: center;
+  }
+  &__link-team {
+    flex: 0 0 25%;
+    text-align: right;
+    color: black;
+  }
+}

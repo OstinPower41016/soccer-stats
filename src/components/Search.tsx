@@ -12,7 +12,7 @@ interface ISearchProps {}
 
 const Search: React.FunctionComponent<ISearchProps> = (props) => {
   const dispatch = useAppDispatch();
-  const { pathname, search } = useLocation();
+  const { pathname } = useLocation();
   const history = useHistory();
 
   const placeholderType = pathname === "/" ? "league" : "team";

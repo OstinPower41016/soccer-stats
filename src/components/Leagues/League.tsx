@@ -1,7 +1,8 @@
 import * as React from "react";
 import cn from "classnames";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
+import { getQuery } from "../../utils/query";
 import { TLeague } from "../../store/Leagues/leaguesSlice";
 import "./styles/League.scss";
 
@@ -10,8 +11,8 @@ interface ILeagueProps extends TLeague {
 }
 
 const League: React.FunctionComponent<ILeagueProps> = (props) => {
-  const { search } = useLocation();
-  const season = new URLSearchParams(search).get("season") || new Date().getFullYear();
+  const history = useHistory();
+  const season = getQuery(history, "season") || new Date().getFullYear();
 
   const pathRoute = `teams/${props.id}/${season}`;
 

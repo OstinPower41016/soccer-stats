@@ -12,7 +12,8 @@
     flex: 0 0 75%;
   }
   &__items {
-    & > a:not(:first-child) {
+    & > a,
+    div:not(:first-child) {
       margin-top: 1rem;
     }
   }

@@ -3,7 +3,7 @@ import { BiFilter } from "react-icons/bi";
 import cn from "classnames";
 import { useHistory, useParams } from "react-router-dom";
 
-import { setQuery } from "../utils/query";
+import { setQuery, getQuery } from "../utils/query";
 import { useAppDispatch } from "../hooks/redux";
 import { onFilterLeaguesBySeason } from "../store/Leagues/leaguesSlice";
 import "./styles/Filters.scss";
@@ -21,7 +21,7 @@ const Filters: React.FunctionComponent<IFiltersProps> = (props) => {
   const currentYear = new Date().getFullYear();
   const history = useHistory();
   const { seasonYear } = useParams<{ seasonYear: string }>();
-  const season = new URLSearchParams(history.location.search).get("season");
+  const season = getQuery(history, "season");
 
   let selectedSeason: number;
   if (season) {
